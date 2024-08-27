@@ -8,3 +8,5 @@ G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\
 G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.csproj.CoreCompileInputs.cache
 G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.exe
 G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.pdb
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.MenuInicial.resources
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.NivelesForm.resources

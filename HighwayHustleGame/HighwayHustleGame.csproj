@@ -55,14 +55,32 @@
     <Compile Include="FormInicial.Designer.cs">
       <DependentUpon>FormInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuInicial.Designer.cs">
+      <DependentUpon>MenuInicial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Car.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Model\Road.cs" />
+    <Compile Include="NivelesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NivelesForm.Designer.cs">
+      <DependentUpon>NivelesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormInicial.resx">
       <DependentUpon>FormInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuInicial.resx">
+      <DependentUpon>MenuInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NivelesForm.resx">
+      <DependentUpon>NivelesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -21,6 +21,8 @@ namespace HighwayHustleGame.Model
         private const int segmentSpacing = 10; // Espaciado entre segmentos
         private float offsetY;
 
+        private float incremento = 1;
+
         public float Speed { get => speed; set => speed = value; }
         public int Level { get => level; set => level = value; }
         public Color RoadColor { get => roadColor; set => roadColor = value; }
@@ -33,6 +35,8 @@ namespace HighwayHustleGame.Model
         public static int SegmentLength => segmentLength;
 
         public static int SegmentSpacing => segmentSpacing;
+
+        public float Incremento { get => incremento; set => incremento = value; }
 
         public Road(int level, float initialSpeed, int width, int height)
         {
@@ -49,23 +53,20 @@ namespace HighwayHustleGame.Model
             // Cambia el color de la carretera según el nivel
             switch (level)
             {
-                case 0:
-                    roadColor = Color.Gray;
-                    break;
                 case 1:
-                    roadColor = Color.DarkGray;
+                    roadColor = Color.FromArgb(90, 90, 90);
                     break;
                 case 2:
-                    roadColor = Color.DimGray;
+                    roadColor = Color.FromArgb(148, 109, 97);
                     break;
                 case 3:
-                    roadColor = Color.Silver;
+                    roadColor = Color.FromArgb(161, 107, 90);
                     break;
                 case 4:
-                    roadColor = Color.LightGray;
+                    roadColor = Color.FromArgb(178, 102, 78);
                     break;
                 case 5:
-                    roadColor = Color.WhiteSmoke;
+                    roadColor = Color.FromArgb(200, 92, 58);
                     break;
                 default:
                     roadColor = Color.Gray;
@@ -76,12 +77,17 @@ namespace HighwayHustleGame.Model
         public void Update()
         {
             // Actualiza la carretera
-            offsetY += speed * (float)1;
+            offsetY += speed * (float)incremento;
             if (offsetY >= roadBitmap.Height)
             {
                 offsetY -= roadBitmap.Height;
             }
             DrawRoad();
+        }
+
+        public void IncreaseSpeed(float incremento)
+        {
+            this.incremento += incremento;
         }
 
         private void DrawRoad()
@@ -126,7 +132,6 @@ namespace HighwayHustleGame.Model
                 roadGraphics.DrawLine(pen, startX, startY + offsetY, endX, endY + offsetY);
             }
         }
-
 
         public void Draw(Graphics g)
         {
