@@ -28,6 +28,14 @@ namespace HighwayHustleGame
         private Label lblStatus; // Nuevo Label para mostrar el nivel o puntuación
         private int puntuacion=0;
 
+
+        // Panel para el menú de fin del juego
+        private Panel gameOverPanel;
+        private Button btnRestart;
+        private Button btnMainMenu;
+        private Label lblSup;
+
+
         public string ModoJuego { get => modoJuego; set => modoJuego = value; }
 
         public FormInicial(string modoJuego, int nivel)
@@ -65,18 +73,12 @@ namespace HighwayHustleGame
 
             keysPressed = new HashSet<Keys>();
 
-            // Configurar el Label
-            lblStatus = new Label();
-            lblStatus.AutoSize = true;
-            lblStatus.ForeColor = Color.White;
-            lblStatus.BackColor = Color.Transparent;
-            lblStatus.Font = new Font("Arial", 14, FontStyle.Bold);
-            lblStatus.Location = new Point(this.ClientSize.Width - 150, 30); // Posición en la esquina superior derecha
-            lblStatus.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            gamePanel.Controls.Add(lblStatus);
+            generarComponentes();
+
 
             if (modoJuego == "Historia")
             {
+                
                 tiempoRestante = nivel * 60;
                 road.IncreaseSpeed(nivel / 2);
                 velMinEnemigos += nivel;
@@ -128,17 +130,15 @@ namespace HighwayHustleGame
                 {
                     levelTimer.Stop();
                     gameTimer.Stop();
-                    MessageBox.Show($"¡Has superado el nivel {nivel}!");
-                    this.Close();
+                    ShowGameOverMenu();
                 }
             }
         }
 
         private void ChallengeModeTimer_Tick(object sender, EventArgs e)
         {
-            // Aumentar la velocidad cada 60 segundos en el modo "Desafio"
             road.IncreaseSpeed(0.1f); // Aumenta la velocidad de los coches enemigos
-            velMinEnemigos += 0.1f;
+            velMinEnemigos += 0.1f; // Aumenta la velocidad mínima de los coches enemigos
             velMaxEnemigos += 0.1f;
 
             if (modoJuego == "Desafio")
@@ -210,19 +210,41 @@ namespace HighwayHustleGame
                 int laneIndex = random.Next(0, laneCount);
                 int laneX = lanePositions[laneIndex];
 
+                int newCarSpeed = random.Next((int)velMinEnemigos, (int)velMaxEnemigos);
+
                 bool isLaneOccupied = enemyCars.Any(car =>
-                    Math.Abs(car.Left - laneX) < car.Width && car.Top < car.Height * 2);
+                {
+                    int predictedDistance = (newCarSpeed > car.Speed)
+                                            ? (int)(car.Top + car.Height) + (int)(car.Speed - newCarSpeed) * 3
+                                            : (int)car.Top - (int)(newCarSpeed - car.Speed) * 3;
+
+                    return Math.Abs(car.Left - laneX) < car.Width && predictedDistance < car.Height * 3;
+                });
 
                 if (!isLaneOccupied)
                 {
                     Image enemyCarImage = GetRandomCarImage();
                     int y = -enemyCarImage.Height;
-                    Car enemyCar = new Car(2, enemyCarImage, new Point(laneX, y), random.Next((int)velMinEnemigos, (int)velMaxEnemigos), gamePanel.Width, gamePanel.Height, 60, 100);
+                    Car enemyCar = new Car(2, enemyCarImage, new Point(laneX, y), newCarSpeed, gamePanel.Width, gamePanel.Height, 60, 100);
+
+                    var minDistance = 150;  
+                    foreach (var existingCar in enemyCars)
+                    {
+                        if (existingCar.Bounds.IntersectsWith(new Rectangle(laneX, -minDistance, existingCar.Width, minDistance * 2)))
+                        {
+                            y = Math.Min(y, existingCar.Top - minDistance);
+                        }
+                    }
+
+                    enemyCar.Top = y;
                     enemyCars.Add(enemyCar);
                     gamePanel.Controls.Add(enemyCar);
                 }
             }
         }
+
+
+
 
         private Image GetRandomCarImage()
         {
@@ -263,14 +285,50 @@ namespace HighwayHustleGame
         {
             foreach (var enemyCar in enemyCars)
             {
-                if (car.Bounds.IntersectsWith(enemyCar.Bounds))
+                Rectangle carBounds = car.Bounds;
+                Rectangle enemyCarBounds = enemyCar.Bounds;
+
+                // Calcular la superposición horizontal y vertical
+                int overlapWidth = Math.Min(carBounds.Right, enemyCarBounds.Right) - Math.Max(carBounds.Left, enemyCarBounds.Left);
+                int overlapHeight = Math.Min(carBounds.Bottom, enemyCarBounds.Bottom) - Math.Max(carBounds.Top, enemyCarBounds.Top);
+
+                // Verificar si la superposición es de al menos 3 píxeles en ambas direcciones
+                if (overlapWidth >= 7 && overlapHeight >= 7)
                 {
                     gameTimer.Stop();
-                    levelTimer?.Stop(); // Detener el temporizador de nivel si está en modo Historia
-                    MessageBox.Show("¡Colisión! Fin del juego.");
+                    levelTimer?.Stop();
+                    lblSup.Location = new Point((int)(gameOverPanel.Width - lblSup.Width * 1.1), 10);
+                    lblSup.Text = "¡PERDISTE!";
+                    ShowGameOverMenu();
                     break;
                 }
             }
+        }
+
+
+        private void ShowGameOverMenu()
+        {
+            // Mostrar el panel de fin de juego
+            car.Visible = false;
+            gameOverPanel.Visible = true;
+        }
+
+        private void BtnRestart_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            
+                FormInicial newGameForm = new FormInicial(modoJuego, nivel);
+                newGameForm.Show();
+
+            this.Close();
+        }
+
+        private void BtnMainMenu_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuInicial menuForm = new MenuInicial();
+            menuForm.Show();
+            this.Close();
         }
 
         protected override void OnLoad(EventArgs e)
@@ -298,6 +356,58 @@ namespace HighwayHustleGame
             NivelesForm nivelesForm = new NivelesForm();
             nivelesForm.Show();
             this.Close();
+        }
+
+        private void generarComponentes()
+        {
+            // Configurar el Label
+            lblStatus = new Label();
+            lblStatus.AutoSize = true;
+            lblStatus.ForeColor = Color.White;
+            lblStatus.BackColor = Color.Transparent;
+            lblStatus.Font = new Font("Arial", 14, FontStyle.Bold);
+            lblStatus.Location = new Point(this.ClientSize.Width - 150, 30); // Posición en la esquina superior derecha
+            lblStatus.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            gamePanel.Controls.Add(lblStatus);
+
+
+            // Configurar el Panel de fin de juego
+            gameOverPanel = new Panel();
+            gameOverPanel.Size = new Size(300, 200);
+            gameOverPanel.BackColor = Color.FromArgb(128, 0, 0, 0); // Fondo semitransparente
+            gameOverPanel.Visible = false; // Inicialmente oculto
+            gameOverPanel.Location = new Point((this.ClientSize.Width - gameOverPanel.Width) / 2,
+                                               (this.ClientSize.Height - gameOverPanel.Height) / 2);
+            gamePanel.Controls.Add(gameOverPanel);
+
+            // Botón para reiniciar el nivel
+            btnRestart = new Button();
+            btnRestart.Text = "Reiniciar";
+            btnRestart.Font = new Font("Arial", 12, FontStyle.Bold);
+            btnRestart.Size = new Size(120, 50);
+            btnRestart.Location = new Point((gameOverPanel.Width - btnRestart.Width) / 2, 40);
+            btnRestart.Click += BtnRestart_Click;
+            gameOverPanel.Controls.Add(btnRestart);
+
+            // Botón para volver al menú principal
+            btnMainMenu = new Button();
+            btnMainMenu.Text = "Menú Principal";
+            btnMainMenu.Font = new Font("Arial", 12, FontStyle.Bold);
+            btnMainMenu.Size = new Size(120, 50);
+            btnMainMenu.Location = new Point((gameOverPanel.Width - btnMainMenu.Width) / 2, 110);
+            btnMainMenu.Click += BtnMainMenu_Click;
+            gameOverPanel.Controls.Add(btnMainMenu);
+
+            // Configurar el Label
+            lblSup = new Label();
+            lblSup.AutoSize = true;
+            lblSup.ForeColor = Color.White;
+            lblSup.BackColor = Color.Transparent;
+            lblSup.Font = new Font("Arial", 14, FontStyle.Bold);
+            lblSup.Location = new Point((int)(gameOverPanel.Width - lblSup.Width * 2.4), 10);
+            lblSup.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblSup.Text = $"Nivel {nivel} SUPERADO!";
+            gameOverPanel.Controls.Add(lblSup);
         }
     }
 }

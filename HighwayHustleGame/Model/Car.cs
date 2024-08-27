@@ -20,7 +20,7 @@ namespace HighwayHustleGame.Model
             this.Width = width;
             this.Height = height;
             this.SizeMode = PictureBoxSizeMode.StretchImage; // Ajustar la imagen al tamaño del PictureBox
-            this.BorderStyle = BorderStyle.FixedSingle; // Sin borde
+            //this.BorderStyle = BorderStyle.FixedSingle; // Sin borde
             this.typeOfCar = typeOfCar;
             // Asegurarse de que el coche no se mueva fuera de los límites del panel
             this.MaximumSize = new Size(panelWidth, panelHeight);
