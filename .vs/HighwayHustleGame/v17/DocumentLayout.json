@@ -1,0 +1,87 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\highwayhustlegame\\model\\road.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|solutionrelative:highwayhustlegame\\model\\road.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|g:\\my drive\\d-espe\\v\\grafica\\tercer parcial\\highwayhustlegame\\highwayhustlegame\\model\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|solutionrelative:highwayhustlegame\\model\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\highwayhustlegame\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|solutionrelative:highwayhustlegame\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\highwayhustlegame\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E70E43E6-1CB7-4DD7-8EBF-0F737785689C}|HighwayHustleGame\\HighwayHustleGame.csproj|solutionrelative:highwayhustlegame\\forminicial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FormInicial.cs",
+              "DocumentMoniker": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\FormInicial.cs",
+              "RelativeDocumentMoniker": "HighwayHustleGame\\FormInicial.cs",
+              "ToolTip": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\FormInicial.cs",
+              "RelativeToolTip": "HighwayHustleGame\\FormInicial.cs",
+              "ViewState": "AQIAAIEAAAAAAAAAAAAAAKEAAABfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T23:22:39.809Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Car.cs",
+              "DocumentMoniker": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\Model\\Car.cs",
+              "RelativeDocumentMoniker": "HighwayHustleGame\\Model\\Car.cs",
+              "ToolTip": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\Model\\Car.cs",
+              "RelativeToolTip": "HighwayHustleGame\\Model\\Car.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T01:21:39.762Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Road.cs",
+              "DocumentMoniker": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\Model\\Road.cs",
+              "RelativeDocumentMoniker": "HighwayHustleGame\\Model\\Road.cs",
+              "ToolTip": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\Model\\Road.cs",
+              "RelativeToolTip": "HighwayHustleGame\\Model\\Road.cs",
+              "ViewState": "AQIAAFoAAAAAAAAAAAAAAG8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T21:55:27.9Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FormInicial.cs [Design]",
+              "DocumentMoniker": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\FormInicial.cs",
+              "RelativeDocumentMoniker": "HighwayHustleGame\\FormInicial.cs",
+              "ToolTip": "G:\\My Drive\\D-ESPE\\V\\GRAFICA\\TERCER PARCIAL\\HighwayHustleGame\\HighwayHustleGame\\FormInicial.cs [Design]",
+              "RelativeToolTip": "HighwayHustleGame\\FormInicial.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T21:40:39.266Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

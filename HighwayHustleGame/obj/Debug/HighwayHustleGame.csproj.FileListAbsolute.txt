@@ -1,0 +1,10 @@
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\bin\Debug\HighwayHustleGame.exe.config
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\bin\Debug\HighwayHustleGame.exe
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\bin\Debug\HighwayHustleGame.pdb
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.csproj.AssemblyReference.cache
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.FormInicial.resources
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.Properties.Resources.resources
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.csproj.GenerateResource.cache
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.csproj.CoreCompileInputs.cache
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.exe
+G:\My Drive\D-ESPE\V\GRAFICA\TERCER PARCIAL\HighwayHustleGame\HighwayHustleGame\obj\Debug\HighwayHustleGame.pdb
